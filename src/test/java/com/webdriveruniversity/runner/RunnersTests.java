@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
         //tags = "@LinkTest",
         glue={"com.webdriveruniversity.stepDefinition"},
         plugin = {"pretty", "html:target/cucumber-reports"},
-        publish = false
+        publish = true
 ) 
 public class RunnersTests {
     public static void main(String[] args) {
