@@ -1,6 +1,10 @@
 package com.webdriveruniversity.stepDefinition;
 import com.webdriveruniversity.pages.HomePage;
 import com.webdriveruniversity.pages.LoginPage;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
 import com.webdriveruniversity.common.BaseClass;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -10,7 +14,14 @@ public class VerifyLoginPage {
 	
 	@io.cucumber.java.en.When("I click the login button")
 	public void click_the_login_button() {
-		HomePage.getLoginButton(BaseClass.driver).click();
+		WebElement button = HomePage.getLoginButton(BaseClass.driver);
+		try {
+			button.click();
+		}
+		catch(Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor)BaseClass.driver;
+			js.executeScript("arguments[0].click();", button);
+		}
 	}
 	
 	@When("^Enter the \"([^\"]*)\" as username and \"([^\"]*)\" as password$")
