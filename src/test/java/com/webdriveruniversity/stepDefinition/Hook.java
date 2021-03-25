@@ -26,12 +26,8 @@ public class Hook{
 		options.addArguments("--no-sandbox"); // Bypass OS security model
 		options.addArguments("--headless"); // Bypass OS security model
 		BaseClass.driver = new ChromeDriver(options);
-		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
-	
-	@Before(order = 1)
-	public void maximizeWindow() {
 		BaseClass.driver.manage().window().maximize();
+		BaseClass.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
 	

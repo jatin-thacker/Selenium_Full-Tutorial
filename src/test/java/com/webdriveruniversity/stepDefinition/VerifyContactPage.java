@@ -2,6 +2,8 @@ package com.webdriveruniversity.stepDefinition;
 
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import com.webdriveruniversity.common.BaseClass;
 import com.webdriveruniversity.pages.ContactUsPage;
@@ -23,7 +25,14 @@ public class VerifyContactPage {
 
 	@When("^I click the Contact Us page$")
 	public void i_click_the_Contact_Us_page() {
-	    HomePage.getContactUsButton(BaseClass.driver).click();
+		WebElement button = HomePage.getContactUsButton(BaseClass.driver);
+		try{
+			button.click();
+		}
+		catch(Exception e) {
+			JavascriptExecutor js = (JavascriptExecutor)BaseClass.driver;
+			js.executeScript("arguments[0].click();", button);
+		}
 		//Utilities.attachScreenshot(BaseClass.scenario, "Clicked on the contact us page");
 	}
 	
