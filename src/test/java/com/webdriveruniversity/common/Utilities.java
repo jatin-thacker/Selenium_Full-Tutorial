@@ -9,12 +9,26 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.Scenario;
 
 public class Utilities {
+	
 	public static void switchTabs(WebDriver driver) {
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(newTb.get(1));
 	}
+	
 	public static void attachScreenshot(Scenario scenario, String message) {
 		final byte[] screenshot = ((TakesScreenshot) BaseClass.driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "image/png", message);
+	}
+	
+	public static String readAndAcceptPopup(WebDriver driver) {
+		String message = driver.switchTo().alert().getText();
+		try {
+			Thread.sleep(2000);
+		}
+		catch(Exception e) {
+			;
+		}
+		driver.switchTo().alert().accept();
+		return message;
 	}
 }
