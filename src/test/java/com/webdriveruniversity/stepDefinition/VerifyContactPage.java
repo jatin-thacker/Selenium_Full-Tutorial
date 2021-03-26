@@ -9,7 +9,6 @@ import com.webdriveruniversity.common.BaseClass;
 import com.webdriveruniversity.pages.ContactUsPage;
 import com.webdriveruniversity.pages.ContactUsResponsePage;
 import com.webdriveruniversity.pages.HomePage;
-//import com.webdriveruniversity.common.Utilities;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +19,6 @@ public class VerifyContactPage {
 	@Given("^I am present on the home page of the WebDriver University$")
 	public void i_am_present_on_the_home_page_of_the_WebDriver_University() {
 		HomePage.open(BaseClass.driver);
-		//Utilities.attachScreenshot(BaseClass.scenario, "Present on the home page");
 	}
 
 	@When("^I click the Contact Us page$")
@@ -33,13 +31,11 @@ public class VerifyContactPage {
 			JavascriptExecutor js = (JavascriptExecutor)BaseClass.driver;
 			js.executeScript("arguments[0].click();", button);
 		}
-		//Utilities.attachScreenshot(BaseClass.scenario, "Clicked on the contact us page");
 	}
 	
 	@When("^I switch to the new tab$")
 	public void swtich_tabs() {
 	    com.webdriveruniversity.common.Utilities.switchTabs(BaseClass.driver);
-		//Utilities.attachScreenshot(BaseClass.scenario, "Switch tabs");
 	}
 
 	@When("^Enter the \"([^\"]*)\" as firstname, \"([^\"]*)\" as lastname, \"([^\"]*)\" as email and \"([^\"]*)\" as message$")
@@ -54,7 +50,6 @@ public class VerifyContactPage {
 		    Thread.sleep(1000);
 		    ContactUsPage.setMessage(BaseClass.driver, message);
 		    Thread.sleep(1000);
-			//Utilities.attachScreenshot(BaseClass.scenario, "Entered Details");
 		    ContactUsPage.submitButton(BaseClass.driver).click();
 	    }   
 	    catch(Exception e) {	

@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = {"src/test/resources/"}, 
-        //tags = "@ContactUsTest",
+        tags = "@ActionsTest",
         glue={"com.webdriveruniversity.stepDefinition"},
         plugin = {"pretty", "html:target/cucumber-reports"},
         publish = true

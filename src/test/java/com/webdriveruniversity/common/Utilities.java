@@ -8,9 +8,6 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.Scenario;
 
-
-
-
 public class Utilities {
 	public static void switchTabs(WebDriver driver) {
 		ArrayList<String> newTb = new ArrayList<String>(driver.getWindowHandles());

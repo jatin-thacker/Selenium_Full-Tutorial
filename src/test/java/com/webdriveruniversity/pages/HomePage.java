@@ -11,6 +11,8 @@ public class HomePage {
 	static By contactUsButton = By.id("contact-us");
 	static By loginButton = By.id("login-portal");
 	static By clickButton = By.id("button-clicks");
+	static By actionButton = By.id("actions");
+	
 	public static void open(WebDriver driver) {
 		driver.get("http://webdriveruniversity.com/index.html");
 	}
@@ -32,6 +34,11 @@ public class HomePage {
 	
 	public static WebElement getClickButton(WebDriver driver) {
 		WebElement button = driver.findElement(clickButton);
+		return button;
+	}
+	
+	public static WebElement getActionButton(WebDriver driver) {
+		WebElement button = driver.findElement(actionButton);
 		return button;
 	}
 }
